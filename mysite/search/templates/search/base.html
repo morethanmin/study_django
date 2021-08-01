@@ -1,0 +1,54 @@
+{% load static %} <!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="keywords" content="{% block meta_keywords %}Python,Django,프로그래밍,게시판{% endblock %}" />
+    <meta name="description" content="{% block meta_description %}Python/Django를 중심으로 프로그래밍의 메모나 튜토리얼에 대해 작성하고 있습니다.{% endblock %}" />
+    <title>{% block meta_title %}Blog{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'search/css/style.css' %}" />
+    <link rel="stylesheet" href="https://use.typekit.net/wfe6byb.css" />
+    <script>
+      ;(function (d) {
+        var config = { kitId: 'jjv2htu', scriptTimeout: 3000, async: true },
+          h = d.documentElement,
+          t = setTimeout(function () {
+            h.className = h.className.replace(/\bwf-loading\b/g, '') + ' wf-inactive'
+          }, config.scriptTimeout),
+          tk = d.createElement('script'),
+          f = false,
+          s = d.getElementsByTagName('script')[0],
+          a
+        h.className += ' wf-loading'
+        tk.src = 'https://use.typekit.net/' + config.kitId + '.js'
+        tk.async = true
+        tk.onload = tk.onreadystatechange = function () {
+          a = this.readyState
+          if (f || (a && a != 'complete' && a != 'loaded')) return
+          f = true
+          clearTimeout(t)
+          try {
+            Typekit.load(config)
+          } catch (e) {}
+        }
+        s.parentNode.insertBefore(tk, s)
+      })(document)
+    </script>
+    {% block extrahead %}{% endblock %}
+  </head>
+  <body>
+    <main>
+      <div class="container">
+        {% block content %}
+        <form id="search-form" action="" method="GET">
+          {{ search_form.key_word }} <button type="submit" id="search-button">검색</button>
+          <div class="inline-checkbox">{{ search_form.tags }}</div>
+        </form>
+        {% endblock %}
+      </div>
+    </main>
+    <footer id="site-footer">
+      <div class="container" id="footer-container"><p id="copyright">© 2021</p></div>
+    </footer>
+  </body>
+</html>

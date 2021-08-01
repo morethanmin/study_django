@@ -1,0 +1,133 @@
+@charset "UTF-8";
+
+/*
+공통설정
+*/
+
+* {
+  margin: 0;
+}
+
+body {
+  line-height: 1;
+  color: #333;
+  font-family: neue-haas-grotesk-text, noto-sans-cjk-jp, sans-serif;
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  body {
+    font-size: 16px;
+  }
+}
+
+a {
+  text-decoration: none;
+  color: #00809d;
+}
+
+a:hover {
+  opacity: 0.5;
+  text-decoration: underline;
+}
+
+p {
+  line-height: 1.75;
+}
+
+/*
+유틸리티
+*/
+/* 컨테이너 */
+.container {
+  margin: 0 10px;
+}
+
+@media (min-width: 768px) {
+  .container {
+    margin: 0 40px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    width: 960px;
+    margin: 0 auto;
+  }
+}
+
+/* 메인 컨텐츠 */
+main {
+  padding: 48px 0;
+  min-height: 40vh;
+}
+
+/* 푸터 */
+#site-footer {
+  background-color: #00809d;
+  padding: 48px 0;
+  color: #fff;
+}
+
+/* 게시글 관련 */
+.post {
+  margin-bottom: 48px;
+  position: relative;
+}
+
+h2.post-title,
+h3.post-title {
+  line-height: 1.5;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.updated_at {
+  display: block;
+  line-height: 1.5;
+  color: #6f959e;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+.description {
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+.tag {
+  margin-right: 5px;
+  cursor: pointer;
+  color: #00809d;
+  font-size: 14px;
+}
+
+.tag:hover {
+  opacity: 0.5;
+  text-decoration: underline;
+}
+
+/*커스텀 체크 박스관련 */
+.custom-checkbox {
+  display: none;
+}
+.custom-checkbox:checked + .custom-checkbox-label {
+  background: #00809d;
+  color: #fff;
+}
+.custom-checkbox-label {
+  box-sizing: border-box;
+  display: inline-block;
+  border-radius: 4px;
+  text-align: center;
+  text-decoration: none;
+  border: solid 1px #ccc;
+  transition: 0.25s;
+  padding: 4px 16px;
+  cursor: pointer;
+  font-size: 14px;
+  margin: 3px;
+}
+.custom-checkbox-label:hover {
+  opacity: 0.5;
+}
