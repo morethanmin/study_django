@@ -1,0 +1,42 @@
+{% extends 'inflearn_lecture/base.html' %} {% block content %} {% load static %}
+<script src="{% static 'javascript/lecture_list.js'%}"></script>
+
+<div class="ll-left">
+  <ul>
+    <li id="all_lecture_menu">전체 보기</li>
+    <li id="hot_lecture_menu">인기 강의</li>
+    {% comment %}
+    <li id="html_lecture_menu">HTML</li>
+    <li id="css_lecture_menu">CSS</li>
+    <li id="javascript_lecture_menu">JAVASCRIPT</li>
+    {% endcomment %}
+  </ul>
+</div>
+<div class="ll-right">
+  <div id="hot_lecture" class="row">
+    {% for lecture in hot_lectures %}
+    <div class="card col-sm-6 col-md-4 m-3">
+      <img src="../../media/{{ lecture.img_url }}" class="card-img-top" alt="../../media/{{ lecture.img_url }}" />
+      <div class="card-body">
+        <h5 class="card-title">
+          <a href="{% url 'lecture_detail' pk=lecture.pk %}">{{ lecture.title }}</a>
+        </h5>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  <div id="all_lecture" class="row">
+    {% for lecture in all_lectures %}
+    <div class="card col-sm-6 col-md-4 m-3">
+      <img src="../../media/{{ lecture.img_url }}" class="card-img-top" alt="../../media/{{ lecture.img_url }}" />
+      <div class="card-body">
+        <h5 class="card-title">
+          <a href="{% url 'lecture_detail' pk=lecture.pk %}">{{ lecture.title }}</a>
+        </h5>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% endblock %}

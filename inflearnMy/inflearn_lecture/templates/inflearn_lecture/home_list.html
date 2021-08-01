@@ -1,0 +1,17 @@
+{% extends 'inflearn_lecture/base.html' %} {% block content %}
+
+<img width="100%" src="https://cdn.inflearn.com/public/main_sliders/8261de45-f4d3-4b5d-b1b8-ebab219ccfbf/326342-eng%20(1).png" class="card-img-top" alt="https://cdn.inflearn.com/public/main_sliders/8261de45-f4d3-4b5d-b1b8-ebab219ccfbf/326342-eng%20(1).png" />
+
+<h1>인기 강의</h1>
+<div class="row">
+  {% for lecture in lectures %}
+  <div class="card col-sm-6 col-md-4 m-3">
+    <img src="../../media/{{ lecture.img_url }}" class="card-img-top" alt="../../media/{{ lecture.img_url }}" />
+    <div class="card-body">
+      <h5 class="card-title">{{ lecture.title }}</h5>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+
+{% endblock %}

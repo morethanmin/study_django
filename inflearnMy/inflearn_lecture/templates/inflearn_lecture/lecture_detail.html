@@ -1,0 +1,32 @@
+{% extends 'inflearn_lecture/base.html' %} {% block content %}
+
+<script>
+  $(function () {})
+</script>
+
+<div class="ld-wrapper">
+  <div class="ld-lecture">
+    <div>{{ lecture.title }}</div>
+    <div>{{ lecture.board_text | safe }}</div>
+  </div>
+
+  <div class="ld-comment">
+    <div>{{comments.count}}개의 댓글이 달렸습니다.</div>
+    {% for comment in comments %}
+    <div>{{comment.author}} - {{comment.text}}</div>
+    {% endfor %} {% if user.is_authenticated %}
+    <form method="POST" action="{% url 'lecture_detail' pk=lecture.pk %}">
+      {% csrf_token %}
+      <div class="mb-3">
+        <label for="text" class="form-label">댓글 작성</label>
+        <input name="text" type="text" class="form-control" id="text" />
+      </div>
+      <button type="submit" class="btn btn-primary">등록</button>
+    </form>
+    {% else %}
+    <div>로그인한 사용자만 댓글을 달 수 있습니다.</div>
+    {% endif %}
+  </div>
+</div>
+
+{% endblock %}

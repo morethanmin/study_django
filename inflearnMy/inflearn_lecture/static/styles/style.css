@@ -1,0 +1,82 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+/* common */
+body {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  grid-template-columns: 100%;
+  height: 100vh;
+}
+a {
+}
+.container {
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+/* base */
+.base-header {
+  height: 60px;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.base-left,
+.base-right {
+  display: flex;
+}
+.base-left h1 {
+  margin-right: 40px;
+}
+
+.base-left ul,
+.base-right ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+  margin: 0px;
+}
+
+.base-left ul li,
+.base-right ul li {
+  margin-right: 20px;
+}
+
+.base-main {
+}
+
+/* home-list */
+
+/* lecture-list */
+.ll-left {
+  width: 20%;
+  float: left;
+}
+.ll-right {
+  width: 80%;
+  float: left;
+}
+
+/* signin */
+
+.si-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* lecture-detail */
+
+.ld-wrapper {
+  height: 100%;
+  display: grid;
+  grid-template-rows: 1fr auto;
+}
