@@ -1,0 +1,18 @@
+{% extends 'inflearn_lecture/base.html'%}
+
+{% block content %}
+
+
+    <div style="width: 700px; margin:auto; padding:40px;">
+        <form action="{% url 'create_lecture' %}" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{lecture_form.as_p}}
+
+            <button type="submit">저장</button>
+
+        </form>
+
+    </div>
+
+
+{% endblock %}

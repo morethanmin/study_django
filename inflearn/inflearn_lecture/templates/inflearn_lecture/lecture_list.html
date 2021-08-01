@@ -1,0 +1,83 @@
+{% extends 'inflearn_lecture/base.html'%}
+
+{% block content %}
+
+
+    <style>
+        div {
+            float:left
+        }
+        .left {
+            width:30%;
+        }
+
+        .left ul li {
+            margin:10px;
+            padding:10px;
+            border:1px solid gray;
+        }
+        .right{
+            width:70%;
+        }
+    </style>
+
+    <div class="left">
+        <ul>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JS</li>
+            <li id="hot_lecture">인기</li>
+            <li>추천</li>
+        </ul>
+    </div>
+
+    <div class="right">
+
+        <div class="row all">
+        {% for text in texts %}
+
+              <div class="col-sm-6 col-md-4">
+                <div class="thumbnail">
+
+                    <a href="{% url 'lecture_list_info' pk=text.pk %}">
+                      <img src="../../media/{{text.img_url}}" alt="{{text.img_url}}">
+                      <div class="caption">
+                        <h3>{{text.title}}</h3>
+                      </div>
+                    </a>
+                </div>
+              </div>
+
+        {% endfor %}
+        </div>
+
+        <div class="row hot">
+        {% for text in hot_lecture %}
+
+              <div class="col-sm-6 col-md-4">
+                <div class="thumbnail">
+                    <a href="{% url 'lecture_list_info' pk=text.pk %}">
+                      <img src="../../media/{{text.img_url}}" alt="{{text.img_url}}">
+                      <div class="caption">
+                        <h3>{{text.title}}</h3>
+                      </div>
+                    </a>
+                </div>
+              </div>
+
+        {% endfor %}
+        </div>
+
+    </div>
+
+    <script>
+
+        $( '#hot_lecture' ).click( function() {
+          $('.row').hide();
+          $('.hot').show();
+        } );
+    </script>
+
+
+{% endblock %}
+

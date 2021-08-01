@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <style>
+        div {
+            float:left;
+        }
+        .left{
+            width:70%;
+        }
+
+        .right{
+            width:30%;
+        }
+
+        ul li {
+            list-style:none;
+            margin:10px;
+            padding:10px;
+            border:1px solid gray;
+        }
+
+        iframe{
+            width:100%;
+            height:600px;
+        }
+    </style>
+
+
+</head>
+<body>
+
+    <div class="left lecture1">
+        {{board_contents.lecture_video1 | safe}}
+    </div>
+
+    <div class="left lecture2" style="display:none;">
+        {{board_contents.lecture_video2 | safe}}
+    </div>
+
+    <div class="left lecture3" style="display:none;">
+        {{board_contents.lecture_video3 | safe}}
+    </div>
+
+    <div class="left lecture4" style="display:none;">
+        {{board_contents.lecture_video4 | safe}}
+    </div>
+
+    <div class="right">
+        <ul>
+            <li class="menu" id="title1">{{board_contents.lecture_title1}}</li>
+            <li class="menu" id="title2">{{board_contents.lecture_title2}}</li>
+            <li class="menu" id="title3">{{board_contents.lecture_title3}}</li>
+            <li class="menu" id="title4">{{board_contents.lecture_title4}}</li>
+        </ul>
+
+    </div>
+
+    <script>
+        $( '#title1' ).click( function() {
+          $('.left').hide();
+          $('.lecture1').show();
+          $('.menu').css('color', 'black')
+          $('#title1').css('color', 'red')
+        } );
+
+        $( '#title2' ).click( function() {
+          $('.left').hide();
+          $('.lecture2').show();
+          $('.menu').css('color', 'black')
+          $('#title2').css('color', 'red')
+        } );
+
+    </script>
+
+</body>
+</html>

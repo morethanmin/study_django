@@ -1,0 +1,26 @@
+{% extends 'inflearn_lecture/base.html'%}
+
+{% block content %}
+
+    <h2>인기 강의</h2>
+    <div class="row">
+    {% for text in texts %}
+
+          <div class="col-sm-6 col-md-4">
+              <a href="{% url 'lecture_list_info' pk=text.pk %}">
+                <div class="thumbnail">
+                  <img src="../../media/{{text.img_url}}" alt="{{text.img_url}}">
+                  <div class="caption">
+                    <h3>{{text.title}}</h3>
+                  </div>
+                </div>
+              </a>
+          </div>
+
+
+    {% endfor %}
+    </div>
+
+
+{% endblock %}
+
